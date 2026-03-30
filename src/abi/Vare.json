@@ -1,0 +1,17 @@
+[
+  {"type":"function","name":"title","inputs":[],"outputs":[{"name":"","type":"string"}],"stateMutability":"view"},
+  {"type":"function","name":"url","inputs":[],"outputs":[{"name":"","type":"string"}],"stateMutability":"view"},
+  {"type":"function","name":"creator","inputs":[],"outputs":[{"name":"","type":"address"}],"stateMutability":"view"},
+  {"type":"function","name":"openedAt","inputs":[],"outputs":[{"name":"","type":"uint256"}],"stateMutability":"view"},
+  {"type":"function","name":"duration","inputs":[],"outputs":[{"name":"","type":"uint256"}],"stateMutability":"view"},
+  {"type":"function","name":"isClosed","inputs":[],"outputs":[{"name":"","type":"bool"}],"stateMutability":"view"},
+  {"type":"function","name":"isOpen","inputs":[],"outputs":[{"name":"","type":"bool"}],"stateMutability":"view"},
+  {"type":"function","name":"closesAt","inputs":[],"outputs":[{"name":"","type":"uint256"}],"stateMutability":"view"},
+  {"type":"function","name":"markCount","inputs":[],"outputs":[{"name":"","type":"uint256"}],"stateMutability":"view"},
+  {"type":"function","name":"marks","inputs":[{"name":"","type":"uint256"}],"outputs":[{"name":"marker","type":"address"},{"name":"timestamp","type":"uint256"}],"stateMutability":"view"},
+  {"type":"function","name":"colourOf","inputs":[{"name":"markId","type":"uint256"}],"outputs":[{"name":"h","type":"uint256"},{"name":"s","type":"uint256"},{"name":"l","type":"uint256"}],"stateMutability":"view"},
+  {"type":"function","name":"mark","inputs":[],"outputs":[{"name":"","type":"uint256"}],"stateMutability":"nonpayable"},
+  {"type":"function","name":"close","inputs":[],"outputs":[],"stateMutability":"nonpayable"},
+  {"type":"event","name":"Marked","inputs":[{"name":"id","type":"uint256","indexed":true},{"name":"marker","type":"address","indexed":true},{"name":"timestamp","type":"uint256","indexed":false}],"anonymous":false},
+  {"type":"event","name":"Closed","inputs":[{"name":"totalMarks","type":"uint256","indexed":false}],"anonymous":false}
+]
