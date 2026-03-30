@@ -31,7 +31,7 @@ export default function App() {
             <span>·</span>
             <a href="https://hiven.space" target="_blank" rel="noreferrer">hiven</a>
             <span>·</span>
-            <a href="https://kaipuu.space" target="_blank" rel="noreferrer">kaipuu</a>
+            <a href="https://kaipuu.kaarna.xyz" target="_blank" rel="noreferrer">kaipuu</a>
           </div>
           <p className="footer-disclaimer">
             experimental · transactions are permanent · no data collected
