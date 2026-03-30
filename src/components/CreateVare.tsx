@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useAccount, useWriteContract, useWaitForTransactionReceipt } from "wagmi"
 import { useConnectModal } from "@rainbow-me/rainbowkit"
+import type { Abi } from "viem"
 import { ACTIVE_CHAIN, FACTORY_ADDRESS, SEVEN_DAYS, FOURTEEN_DAYS, TWENTYEIGHT_DAYS } from "../constants"
 import VareFactoryABI from "../abi/VareFactory.json"
 
@@ -18,7 +19,7 @@ export function CreateVare({ onDeployed }: Props) {
   const [txHash, setTxHash] = useState<`0x${string}` | undefined>()
 
   const { writeContract, isPending } = useWriteContract()
-  const abi = VareFactoryABI as Parameters<typeof useWriteContract>[0]["abi"]
+  const abi = VareFactoryABI as Abi
 
   const { isLoading: isConfirming, isSuccess } = useWaitForTransactionReceipt({
     hash: txHash,

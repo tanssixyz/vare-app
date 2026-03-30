@@ -1,5 +1,6 @@
 import { useReadContract, useReadContracts } from "wagmi"
 import { useNavigate } from "react-router"
+import type { Abi } from "viem"
 import { ACTIVE_CHAIN, FACTORY_ADDRESS, BLOCKED_VARES } from "../constants"
 import VareFactoryABI from "../abi/VareFactory.json"
 import VareABI from "../abi/Vare.json"
@@ -7,7 +8,7 @@ import { formatTimeRemaining } from "../lib/colour"
 import { CreateVare } from "../components/CreateVare"
 
 export function IndexPage() {
-  const abi = VareFactoryABI as Parameters<typeof useReadContract>[0]["abi"]
+  const abi = VareFactoryABI as Abi
 
   const { data: allVares, isLoading, refetch } = useReadContract({
     address: FACTORY_ADDRESS,
@@ -53,7 +54,7 @@ export function IndexPage() {
 
 function VareCard({ address }: { address: `0x${string}` }) {
   const navigate = useNavigate()
-  const abi = VareABI as Parameters<typeof useReadContracts>[0]["contracts"][0]["abi"]
+  const abi = VareABI as Abi
 
   const { data } = useReadContracts({
     contracts: [

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { useReadContracts, useWriteContract, useWaitForTransactionReceipt, useAccount } from "wagmi"
 import { useConnectModal } from "@rainbow-me/rainbowkit"
 import { decodeEventLog } from "viem"
+import type { Abi } from "viem"
 import { ACTIVE_CHAIN } from "../constants"
 import VareABI from "../abi/Vare.json"
 import { deriveColour, formatDate, formatTimeRemaining } from "../lib/colour"
@@ -23,7 +24,7 @@ interface MarkData {
 }
 
 export function VareView({ address }: { address: `0x${string}` }) {
-  const abi = VareABI as Parameters<typeof useReadContracts>[0]["contracts"][0]["abi"]
+  const abi = VareABI as Abi
 
   const { data, isLoading, refetch } = useReadContracts({
     contracts: [
@@ -115,7 +116,7 @@ function MarkSection({
   const [txHash, setTxHash] = useState<`0x${string}` | undefined>()
   const [newMark, setNewMark] = useState<MarkData | null>(null)
   const { writeContract, isPending } = useWriteContract()
-  const abi = VareABI as Parameters<typeof useWriteContract>[0]["abi"]
+  const abi = VareABI as Abi
 
   const { data: receipt, isLoading: isConfirming } = useWaitForTransactionReceipt({
     hash: txHash,
@@ -240,7 +241,7 @@ function MarkList({
   markCount: bigint
 }) {
   const count = Number(markCount)
-  const abi = VareABI as Parameters<typeof useReadContracts>[0]["contracts"][0]["abi"]
+  const abi = VareABI as Abi
 
   const contracts = Array.from({ length: count }, (_, i) => ({
     address,
